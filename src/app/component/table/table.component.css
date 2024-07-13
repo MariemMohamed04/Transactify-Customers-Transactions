@@ -1,0 +1,28 @@
+.table {
+  font-family: "Acme", sans-serif;
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--white-color);
+  --bs-table-border-color: var(--second-color);
+  border-radius: 20px;
+}
+
+.table > :not(caption) > * > * {
+  padding: 20px 20px;
+  /* border-bottom-width: 10px; */
+}
+
+thead {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: var(--main-color);
+}
+
+tbody {
+  font-size: 17px;
+
+}
+
+.btn {
+  background-color: var(--main-color);
+}

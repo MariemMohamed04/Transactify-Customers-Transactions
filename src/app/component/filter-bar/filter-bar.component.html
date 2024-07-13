@@ -1,0 +1,18 @@
+<div class="filter-bar my-3">
+  <div class="row">
+    <div class="col">
+      <input class="form-control" type="text" [(ngModel)]="filterByName" placeholder="Filter by Customer Name..." (input)="onFilterChange()" />
+    </div>
+    <div class="col">
+      <input class="form-control" type="number" [(ngModel)]="filterByAmount" placeholder="Filter by Transaction Amount..." (input)="onFilterChange()" />
+    </div>
+    <div class="col">
+      <button (click)="resetData()" class="btn rounded-2 text-white">Reset Data</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+

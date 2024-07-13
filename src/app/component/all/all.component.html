@@ -1,0 +1,13 @@
+<div class="container vh-100">
+  <h1 class="title text-center mb-5 text-uppercase fw-bold">Task</h1>
+  <app-filter-bar (filterChanged)="onFilterChanged($event)"></app-filter-bar>
+  <app-table
+    [filterByName]="filterValues.name"
+    [filterByAmount]="filterValues.amount"
+    (customerSelected)="onCustomerSelected($event)">
+  </app-table>
+  <app-chart [selectedCustomer]="selectedCustomer"></app-chart>
+</div>
+
+
+

@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+  --background-color: #232123;
+  --foreground-color: #121113;
+  --white-color: #fff;
+  --main-color: #3B0055;
+  --second-color: #646264;
+  --third-color: #4c495d;
+  --fourth-color: #d1d7e0;
+  --font-family: "Roboto", sans-serif;
+}
+
+.mat-h1, .mat-headline-5, .mat-typography .mat-h1, .mat-typography .mat-headline-5, .mat-typography h1, .mat-typography h4 {
+  font-family: var(--font-family);
+}
+body {
+  /* background: hsla(225, 45%, 12%, 1);
+  background: linear-gradient(360deg, hsla(225, 45%, 12%, 1) 0%, hsla(226, 40%, 21%, 1) 50%, hsla(224, 35%, 27%, 1) 99%);
+  background: -moz-linear-gradient(360deg, hsla(225, 45%, 12%, 1) 0%, hsla(226, 40%, 21%, 1) 50%, hsla(224, 35%, 27%, 1) 99%);
+  background: -webkit-linear-gradient(360deg, hsla(225, 45%, 12%, 1) 0%, hsla(226, 40%, 21%, 1) 50%, hsla(224, 35%, 27%, 1) 99%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#11182D", endColorstr="#202A4B", GradientType=1 );
+  color: var(--background-color); */
+
+  /* background: var(--background-color); */
+  color: var(--third-color);
+  font-family: var(--font-family);
+  background: var(--background-color);
+  /* background-size: cover;
+  background-position: center center;
+  height: auto; */
+}
