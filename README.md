@@ -2,8 +2,8 @@
 
 Transactify is an Angular-based application designed to retrieve customer and transaction data from a provided API endpoint and display it in a user-friendly format. This project showcases essential features such as filtering and data visualization using a charting library.
 
-Website: https://transactify-project.vercel.app/
-Github Pages: https://mariemmohamed04.github.io/Transactify-Customers-Transactions/
+### Vercel: https://transactify-project.vercel.app/
+### Github Pages: https://mariemmohamed04.github.io/Transactify-Customers-Transactions/
 
 ## Features
 
