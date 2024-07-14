@@ -1,3 +1,4 @@
+import { CustTransactionsService } from './../../services/cust-transactions.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CustomerFilterPipe } from '../../pipes/customer-filter.pipe';
 import { TransactionService } from '../../services/transaction.service';
@@ -25,7 +26,11 @@ export class TableComponent implements OnInit {
   @Input() filterByAmount: number | null = null;
   @Output() customerSelected = new EventEmitter<any>();
 
-  constructor(private transactionService: TransactionService, private customerFilter: CustomerFilterPipe) {}
+  constructor(
+    private transactionService: TransactionService,
+    private customerFilter: CustomerFilterPipe,
+    private custTransactionsService: CustTransactionsService
+  ) {}
 
   ngOnInit(): void {
     this.loadCustomerTransactions();
@@ -36,23 +41,35 @@ export class TableComponent implements OnInit {
       (customers) => {
         this.transactionService.getAllTransactions().subscribe(
           (transactions) => {
-            this.customerTransactions = customers.map((customer: any) => {
-              const customerId = Number(customer.id);
-              return {
-                ...customer,
-                transactions: transactions.filter((transaction: any) => Number(transaction.customer_id) === customerId),
-              };
-            });
+            this.populateCustomerTransactions(customers, transactions);
           },
           (error) => {
             console.error('Error fetching transactions:', error);
+            this.loadFallbackData();
           }
         );
       },
       (error) => {
         console.error('Error fetching customers:', error);
+        this.loadFallbackData();
       }
     );
+  }
+
+  loadFallbackData(): void {
+    const customers = this.custTransactionsService.getAllCustomers();
+    const transactions = this.custTransactionsService.getAllTransactions();
+    this.populateCustomerTransactions(customers, transactions);
+  }
+
+  populateCustomerTransactions(customers: any[], transactions: any[]): void {
+    this.customerTransactions = customers.map((customer: any) => {
+      const customerId = Number(customer.id);
+      return {
+        ...customer,
+        transactions: transactions.filter((transaction: any) => Number(transaction.customer_id) === customerId),
+      };
+    });
   }
 
   onDisplayChart(customer: any): void {
